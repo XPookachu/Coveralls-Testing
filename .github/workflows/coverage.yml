@@ -33,4 +33,6 @@ jobs:
         run: mvn clean verify jacoco:report
 
       - name: Upload Coverage to Coveralls
-        run: mvn coveralls:report
+        run: mvn coveralls:report \
+          -DrepoToken=${COVERALLS_REPO_TOKEN} \
+          -Dcoveralls.baseDirectory=${{ github.workspace }}
